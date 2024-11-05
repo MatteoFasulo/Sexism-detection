@@ -1,0 +1,17 @@
+[project]
+name = "sexism-detection"
+version = "0.1.0"
+description = "A sexism detection model using recurrent neural architectures and transformers."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gensim>=4.3.3",
+    "matplotlib>=3.9.2",
+    "nltk>=3.9.1",
+    "pandas>=2.2.3",
+    "requests>=2.32.3",
+    "scikit-learn>=1.5.2",
+    "simplejson>=3.19.3",
+    "tqdm>=4.66.6",
+    "umap-learn>=0.5.7",
+]
