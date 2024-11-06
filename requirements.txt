@@ -18,6 +18,8 @@ debugpy==1.8.7
     # via ipykernel
 decorator==5.1.1
     # via ipython
+emoji==2.14.0
+    # via sexism-detection (pyproject.toml)
 executing==2.1.0
     # via stack-data
 fonttools==4.54.1

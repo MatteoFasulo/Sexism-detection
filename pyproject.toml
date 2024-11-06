@@ -5,6 +5,7 @@ description = "A sexism detection model using recurrent neural architectures and
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "emoji>=2.14.0",
     "gensim>=4.3.3",
     "ipykernel>=6.29.5",
     "matplotlib>=3.9.2",
