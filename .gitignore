@@ -164,6 +164,5 @@ cython_debug/
 # Remove LAB folder
 lab/
 
-# Remove model
-data/model.bin
-data/model.bin.vectors.npy
+# Remove models folder
+models/
