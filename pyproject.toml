@@ -19,4 +19,6 @@ dependencies = [
     "umap-learn>=0.5.7",
     "ipywidgets>=8.1.5",
     "tensorflow>=2.18.0",
+    "sympy>=1.13.3",
+    "transformers>=4.46.2",
 ]
