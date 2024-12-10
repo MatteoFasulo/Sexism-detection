@@ -1,44 +1,13 @@
-import torch
-from detector import SexismDetector
-from sklearn.utils.class_weight import compute_class_weight
-import pandas as pd
-import numpy as np
-from sklearn.metrics import f1_score
-import copy
-import matplotlib.pyplot as plt
-import gc
-import os
+"""
+This file is meant to not deal with ipynb merge conflicts
+"""
 
-class BaselineModel(torch.nn.Module):
-    def __init__(self, embedding_model, detector, hidden_dim, output_dim: int = 1, lstm_layers: int = 1, dropout: float = 0.3):
-        super().__init__()
-
-        self.hidden_dim = hidden_dim
-        self.lstm_layers = lstm_layers
-        self.hidden_dim = hidden_dim
-
-        self.word_embeddings = torch.nn.Embedding.from_pretrained(
-            embeddings=torch.from_numpy(embedding_model.vectors),
-            freeze=True,
-            padding_idx=embedding_model.get_index(detector.PAD_TOKEN)
-        )
-        self.lstm = torch.nn.LSTM(input_size=embedding_model.vector_size, hidden_size=hidden_dim, bidirectional=True, num_layers=lstm_layers, batch_first=True)
-        self.fc = torch.nn.Linear(in_features=2 * hidden_dim, out_features=output_dim)
-        self.dropout = torch.nn.Dropout(dropout)
-
-    def forward(self, inputs):
-        out = self.word_embeddings(inputs)
-        out, _ = self.lstm(out)
-        out = self.dropout(out)
-        out = torch.mean(out, dim=1)  # Average pooling over the seq len
-        out = self.fc(out)
-        return out
-
-# fai che ha inherit dall'altra così quando devi prendere i dataloader basta che calli self e hai già tutto (imo)
-# ha senso
 
 class LSTM_network():
     def __init__(self, name, seed: int, detector : SexismDetector, device, embedding_model, embedding_model_aug, hidden_dim, output_dim, lstm_layers, dropout):
+        """
+        
+        """
         self.name = name
 
         self.seed = seed
@@ -54,12 +23,22 @@ class LSTM_network():
         self.trained = False
 
     def __set_seed(self, seed):
+        """
+        @brief Private method to set the random seed for reproducibility across various libraries.
+        @param seed The seed value to initialize the random number generators.
+        @note Setting `CUBLAS_WORKSPACE_CONFIG` to ":4096:8" is essential for deterministic 
+            CUDA operations. This method is private and intended for internal use only.
+
+        """
         os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
         torch.cuda.manual_seed(seed)
         np.random.seed(seed)
 
     def plot_history(self):
-        if self.history:
+        """
+        @brief Method used to plot the history graph, after a training cycle            
+        """
+        if self.trained:
             fig, axes = plt.subplots(1, 3, figsize=(18, 5))
             baseline_model_name = self.history['model'] == self.name
             self.history[baseline_model_name].plot(x='epoch', y=['train_loss', 'val_loss'], title='Loss', ax=axes[0])
@@ -72,7 +51,19 @@ class LSTM_network():
             raise Exception("You need to train the model first!")
 
     def train(self, train, val, epochs, batch_size, lr, verbose=True):
-        # Preparation
+        """
+        @brief Method to train the model.
+
+        This method trains the model using the provided training and validation data, 
+        for the specified number of epochs and batch size.
+
+        @param train The training dataset used for model training.
+        @param val The validation dataset used to evaluate the model during training.
+        @param epochs The number of training epochs.
+        @param batch_size The batch size for training.
+        @param lr The learning rate used for model optimization.
+        @param verbose If True, prints training progress and metrics, default is True.
+        """
         train_dloader = self.detector.get_dataloader(data=train,
                                                      embedding_model=self.__embedding_model_aug,
                                                      type="train",
@@ -93,7 +84,6 @@ class LSTM_network():
 
         class_weights = compute_class_weight(class_weight='balanced', classes=np.unique(train['label']), y=train['label'])
         class_weights_tensor = torch.tensor(class_weights, dtype=torch.float32)
-
         loss_function = torch.nn.CrossEntropyLoss(
             weight=class_weights_tensor.to(device), 
             ignore_index=self.__embedding_model_aug.get_index(self.detector.PAD_TOKEN)
@@ -123,7 +113,6 @@ class LSTM_network():
             for batch in train_dloader:
                 # Get the inputs and labels
                 sentences, labels = batch
-
                 # Move the inputs and labels to the device (GPU)
                 sentences = sentences.to(device)
                 labels = labels.to(device)  # Labels should be integers for CrossEntropyLoss
@@ -216,6 +205,9 @@ class LSTM_network():
         return history
 
     def test(self, test, batch_size):
+        """
+        #TODO
+        """
         if not self.trained:
             print("WARNING: network is not trained yet!")
 
@@ -226,42 +218,3 @@ class LSTM_network():
                                                      shuffle=True)
         #TODO: create test code
         pass
-        
-
-
-
-# Usage
-detector = SexismDetector()
-embedding_model = None
-embedding_model_aug = None
-device = "cuda"
-hidden_dim=128
-output_dim=1
-lstm_layers=1
-drouput=0.4
-
-seed1 = 1337
-#Creating the newtork
-net1 = LSTM_network(seed1, detector, device, embedding_model, embedding_model_aug, hidden_dim, output_dim, lstm_layers, drouput)
-
-
-#Training the network
-train_data = None
-val_data = None
-epochs = 20
-batch_size = 128
-hist = net1.train(train=train_data, val=val_data, epochs=epochs, batch_size=batch_size, lr=1e-3, verbose=True)
-
-#You can print the history
-net1.plot_history()
-
-# Clear the cache
-with torch.no_grad():
-    torch.cuda.empty_cache()
-
-gc.collect()
-
-
-test_data = None
-#TODO: implement
-net1.test(test_data)
