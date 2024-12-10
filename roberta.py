@@ -19,6 +19,9 @@ class roBERTa:
         self.class_weights = class_weights
         self.seed = seed
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        
+        # Clear the cache and perform garbage collection on initialization
+        self.clear_cache()
     
     def clear_cache(self):
         """
