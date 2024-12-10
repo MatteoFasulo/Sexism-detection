@@ -243,6 +243,16 @@ class roBERTa:
         plt.show()
 
     def get_precision_recall(self, predictions, labels):
+        """
+        Calculate and display the precision-recall curve for the given predictions and labels.
+
+        Args:
+            predictions (np.ndarray): The predicted probabilities or logits from the model.
+            labels (np.ndarray): The true labels for the data.
+
+        Returns:
+            None: This function displays the precision-recall curve using matplotlib.
+        """
         display = PrecisionRecallDisplay.from_predictions(y_true=labels, y_pred=np.argmax(predictions, axis=-1), name='Cardiff Twitter RoBERTa Base', plot_chance_level=True)
         _ = display.ax_.set_title("2-class Precision-Recall curve")
 
@@ -254,6 +264,24 @@ class roBERTa:
         return set(word for word in text.split() if word not in vocab_words)
 
     def review_errors(self, original_data, preprocessed_data, predictions, labels, verbose: bool = False):
+        """
+        Analyzes and reviews errors in model predictions.
+
+        Args:
+            original_data (pd.DataFrame): The original dataset containing the true labels.
+            preprocessed_data (pd.DataFrame): The preprocessed dataset used for predictions.
+            predictions (np.ndarray): The model's predictions.
+            labels (np.ndarray): The true labels.
+            verbose (bool, optional): If True, prints detailed information about each error. Defaults to False.
+
+        Returns:
+            list: A list of tweet IDs where the model made incorrect predictions.
+
+        Prints:
+            - The total number of errors found.
+            - Detailed information about each error if verbose is True.
+            - The number and percentage of errors due to Out-Of-Vocabulary (OOV) words.
+        """
         errors = []
         for i, (pred, label) in enumerate(zip(predictions, labels)):
             if np.argmax(pred) != label:
