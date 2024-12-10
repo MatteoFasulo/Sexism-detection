@@ -24,11 +24,10 @@ class LSTM_network():
 
     def __set_seed(self, seed):
         """
-        @brief Private method to set the random seed for reproducibility across various libraries.
-        @param seed The seed value to initialize the random number generators.
-        @note Setting `CUBLAS_WORKSPACE_CONFIG` to ":4096:8" is essential for deterministic 
-            CUDA operations. This method is private and intended for internal use only.
+        Private method to set the random seed for reproducibility across various libraries.
 
+        Args:
+            seed (int): The seed value to initialize the random number generators.
         """
         os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
         torch.cuda.manual_seed(seed)
@@ -36,7 +35,7 @@ class LSTM_network():
 
     def plot_history(self):
         """
-        @brief Method used to plot the history graph, after a training cycle            
+        Method used to plot the history graph, after a training cycle            
         """
         if self.trained:
             fig, axes = plt.subplots(1, 3, figsize=(18, 5))
@@ -52,17 +51,21 @@ class LSTM_network():
 
     def train(self, train, val, epochs, batch_size, lr, verbose=True):
         """
-        @brief Method to train the model.
+        Method to train the model.
 
         This method trains the model using the provided training and validation data, 
         for the specified number of epochs and batch size.
 
-        @param train The training dataset used for model training.
-        @param val The validation dataset used to evaluate the model during training.
-        @param epochs The number of training epochs.
-        @param batch_size The batch size for training.
-        @param lr The learning rate used for model optimization.
-        @param verbose If True, prints training progress and metrics, default is True.
+        Args:
+            train: The training dataset used for model training.
+            val: The validation dataset used to evaluate the model during training.
+            epochs (int): The number of training epochs.
+            batch_size (int): The batch size for training.
+            lr (float): The learning rate used for model optimization.
+            verbose (boolean): If True, prints training progress and metrics, default is True.
+        
+        Returns:
+            history (pd.DataFrame): History of training
         """
         train_dloader = self.detector.get_dataloader(data=train,
                                                      embedding_model=self.__embedding_model_aug,
