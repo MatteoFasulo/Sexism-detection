@@ -23,6 +23,8 @@ attrs==24.2.0
     # via
     #   sexism-detection (pyproject.toml)
     #   aiohttp
+bitsandbytes==0.45.0
+    # via sexism-detection (pyproject.toml)
 certifi==2024.8.30
     # via
     #   sexism-detection (pyproject.toml)
@@ -66,6 +68,8 @@ dill==0.3.8
     #   datasets
     #   evaluate
     #   multiprocess
+emoji==2.14.0
+    # via sexism-detection (pyproject.toml)
 evaluate==0.4.3
     # via sexism-detection (pyproject.toml)
 executing==2.1.0
@@ -203,6 +207,7 @@ numpy==1.26.4
     # via
     #   sexism-detection (pyproject.toml)
     #   accelerate
+    #   bitsandbytes
     #   contourpy
     #   datasets
     #   evaluate
@@ -310,6 +315,8 @@ propcache==0.2.0
     #   sexism-detection (pyproject.toml)
     #   aiohttp
     #   yarl
+protobuf==5.29.1
+    # via sexism-detection (pyproject.toml)
 psutil==6.1.0
     # via
     #   sexism-detection (pyproject.toml)
@@ -394,6 +401,8 @@ scipy==1.13.1
     #   umap-learn
 sentence-transformers==3.3.1
     # via sexism-detection (pyproject.toml)
+sentencepiece==0.2.0
+    # via sexism-detection (pyproject.toml)
 setuptools==75.6.0
     # via
     #   sexism-detection (pyproject.toml)
@@ -424,16 +433,17 @@ tokenizers==0.21.0
     # via
     #   sexism-detection (pyproject.toml)
     #   transformers
-torch==2.5.1+cu124
+torch==2.5.1
     # via
     #   sexism-detection (pyproject.toml)
     #   accelerate
+    #   bitsandbytes
     #   sentence-transformers
     #   torchaudio
     #   torchvision
-torchaudio==2.5.1+cu124
+torchaudio==2.5.1
     # via sexism-detection (pyproject.toml)
-torchvision==0.20.1+cu124
+torchvision==0.20.1
     # via sexism-detection (pyproject.toml)
 tornado==6.4.1
     # via
@@ -471,6 +481,7 @@ triton==3.1.0
 typing-extensions==4.12.2
     # via
     #   sexism-detection (pyproject.toml)
+    #   bitsandbytes
     #   huggingface-hub
     #   torch
 tzdata==2024.2

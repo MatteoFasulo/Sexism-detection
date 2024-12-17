@@ -116,4 +116,7 @@ dependencies = [
     "xxhash==3.5.0",
     "yarl==1.17.1",
     "emoji>=2.14.0",
+    "bitsandbytes>=0.45.0",
+    "protobuf>=5.29.1",
+    "sentencepiece>=0.2.0",
 ]
