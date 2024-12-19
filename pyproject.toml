@@ -23,7 +23,6 @@ dependencies = [
     "torchvision>=0.20.1",
     "tqdm>=4.67.1",
     "transformers[torch]>=4.47.1",
-    "tweetnlp>=0.2.2",
 ]
 
 [[tool.uv.index]]
