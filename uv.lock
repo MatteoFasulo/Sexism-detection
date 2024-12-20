@@ -1499,24 +1499,6 @@ wheels = [
 ]
 
 [[package]]
-name = "sentence-transformers"
-version = "3.3.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "huggingface-hub" },
-    { name = "pillow" },
-    { name = "scikit-learn" },
-    { name = "scipy" },
-    { name = "torch" },
-    { name = "tqdm" },
-    { name = "transformers" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/79/0a/c677efe908b20e7e8d4ed6cce3a3447eebc7dc5e348e458f5f9a44a72b00/sentence_transformers-3.3.1.tar.gz", hash = "sha256:9635dbfb11c6b01d036b9cfcee29f7716ab64cf2407ad9f403a2e607da2ac48b", size = 217914 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8b/c8/990e22a465e4771338da434d799578865d6d7ef1fdb50bd844b7ecdcfa19/sentence_transformers-3.3.1-py3-none-any.whl", hash = "sha256:abffcc79dab37b7d18d21a26d5914223dd42239cfe18cb5e111c66c54b658ae7", size = 268797 },
-]
-
-[[package]]
 name = "setuptools"
 version = "75.6.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1545,10 +1527,10 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "torch" },
     { name = "torchaudio" },
+    { name = "torchinfo" },
     { name = "torchvision" },
     { name = "tqdm" },
     { name = "transformers", extra = ["torch"] },
-    { name = "tweetnlp" },
 ]
 
 [package.metadata]
@@ -1568,10 +1550,10 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.6.0" },
     { name = "torch", specifier = ">=2.5.1" },
     { name = "torchaudio", specifier = ">=2.5.1" },
+    { name = "torchinfo", specifier = ">=1.8.0" },
     { name = "torchvision", specifier = ">=0.20.1" },
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "transformers", extras = ["torch"], specifier = ">=4.47.1" },
-    { name = "tweetnlp", specifier = ">=0.2.2" },
 ]
 
 [[package]]
@@ -1704,6 +1686,15 @@ wheels = [
 ]
 
 [[package]]
+name = "torchinfo"
+version = "1.8.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/d9/2b811d1c0812e9ef23e6cf2dbe022becbe6c5ab065e33fd80ee05c0cd996/torchinfo-1.8.0.tar.gz", hash = "sha256:72e94b0e9a3e64dc583a8e5b7940b8938a1ac0f033f795457f27e6f4e7afa2e9", size = 25880 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/72/25/973bd6128381951b23cdcd8a9870c6dcfc5606cb864df8eabd82e529f9c1/torchinfo-1.8.0-py3-none-any.whl", hash = "sha256:2e911c2918603f945c26ff21a3a838d12709223dc4ccf243407bce8b6e897b46", size = 23377 },
+]
+
+[[package]]
 name = "torchvision"
 version = "0.20.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1797,20 +1788,6 @@ wheels = [
 ]
 
 [[package]]
-name = "tweetnlp"
-version = "0.2.2"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "datasets" },
-    { name = "numpy" },
-    { name = "sentence-transformers" },
-    { name = "torch" },
-    { name = "transformers" },
-    { name = "urlextract" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/29/73/79134ae68bd6884cd26b257701b7adf7e11b00dd0c6108954ed22ef726be/tweetnlp-0.2.2.tar.gz", hash = "sha256:a89a51535ebabc11f618b56184ee8c6f75ef59c76b198d716f551868426dda5a", size = 34484 }
-
-[[package]]
 name = "typing-extensions"
 version = "4.12.2"
 source = { registry = "https://pypi.org/simple" }
@@ -1826,30 +1803,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e1/34/943888654477a574a86a98e9896bae89c7aa15078ec29f490fef2f1e5384/tzdata-2024.2.tar.gz", hash = "sha256:7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc", size = 193282 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a6/ab/7e5f53c3b9d14972843a647d8d7a853969a58aecc7559cb3267302c94774/tzdata-2024.2-py2.py3-none-any.whl", hash = "sha256:a48093786cdcde33cad18c2555e8532f34422074448fbc874186f0abd79565cd", size = 346586 },
-]
-
-[[package]]
-name = "uritools"
-version = "4.0.3"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/d3/43/4182fb2a03145e6d38698e38b49114ce59bc8c79063452eb585a58f8ce78/uritools-4.0.3.tar.gz", hash = "sha256:ee06a182a9c849464ce9d5fa917539aacc8edd2a4924d1b7aabeeecabcae3bc2", size = 24184 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e6/17/5a4510d9ca9cc8be217ce359eb54e693dca81cf4d442308b282d5131b17d/uritools-4.0.3-py3-none-any.whl", hash = "sha256:bae297d090e69a0451130ffba6f2f1c9477244aa0a5543d66aed2d9f77d0dd9c", size = 10304 },
-]
-
-[[package]]
-name = "urlextract"
-version = "1.9.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "filelock" },
-    { name = "idna" },
-    { name = "platformdirs" },
-    { name = "uritools" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/e1/1d/57a552551f851c6db5e5d66f505548d47dd3f734a8e648f9d4f05e4e5ac9/urlextract-1.9.0.tar.gz", hash = "sha256:70508e02ba9df372e25cf0642db367cece273e8712cd0ce78178fc5dd7ea00db", size = 35369 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/cb/cb/82ef2994dec66351aaffa45061f30051b6b557bf592952f14657f38b6e43/urlextract-1.9.0-py3-none-any.whl", hash = "sha256:f88963532488b1c7c405e21bd162ae97871754ea04b60e18d33ee075b19b82fd", size = 21460 },
 ]
 
 [[package]]

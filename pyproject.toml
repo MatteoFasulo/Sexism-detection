@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "datasets>=3.2.0",
-    "evaluate>=0.4.3",
     "gensim>=4.3.3",
     "iprogress>=0.4",
     "ipykernel>=6.29.5",
