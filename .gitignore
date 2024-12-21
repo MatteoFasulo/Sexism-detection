@@ -166,3 +166,7 @@ lab/
 
 # Remove models folder
 models/
+
+# Remove transformers folder
+twitter-roberta-base-hate*
+xlm-roberta-base*
