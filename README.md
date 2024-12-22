@@ -36,3 +36,12 @@ The main difference between EXIST 2022 and EXIST 2023 is that in the latter the 
 
 ## Extensions
 The task can be extended in order to deal with disagreement among annotators. The learning with disagreement paradigm (LeWiDi) consists mainly in letting systems learn from datasets where no gold annotations are provided but information about the annotations from all annotators, in an attempt to gather the diversity of views (Uma et al.). Rather than eliminating disagreements by selecting the majority vote (EXIST 2021 and 2022), EXIST 2023 will preserve the multiple labels assigned by an heterogeneous and representative group of annotators, so that disagreement can be used as a source of information for the models.
+
+### Dashboard
+The dashboard is built using [**Gradio**](https://www.gradio.app/) and the models are hosted on the [**Hugging Face Hub**](https://huggingface.co/). 
+<iframe
+	src="https://matteofasulo-sexism-detection-dashboard.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
