@@ -39,9 +39,10 @@ The task can be extended in order to deal with disagreement among annotators. Th
 
 ### Dashboard
 The dashboard is built using [**Gradio**](https://www.gradio.app/) and the models are hosted on the [**Hugging Face Hub**](https://huggingface.co/). 
-<iframe
-	src="https://matteofasulo-sexism-detection-dashboard.hf.space"
-	frameborder="0"
-	width="850"
-	height="450"
-></iframe>
+
+<script
+	type="module"
+	src="https://gradio.s3-us-west-2.amazonaws.com/5.9.1/gradio.js"
+></script>
+
+<gradio-app src="https://matteofasulo-sexism-detection-dashboard.hf.space"></gradio-app>
