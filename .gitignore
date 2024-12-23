@@ -170,3 +170,6 @@ models/
 # Remove transformers folder
 twitter-roberta-base-hate*
 xlm-roberta-base*
+
+# Remove assignments folder
+assignments/
