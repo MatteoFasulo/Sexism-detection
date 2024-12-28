@@ -28,6 +28,7 @@ dependencies = [
     "tqdm>=4.67.1",
     "transformers[torch]>=4.47.1",
     "bitsandbytes>=0.45.0",
+    "sentencepiece>=0.2.0",
 ]
 
 [[tool.uv.index]]
