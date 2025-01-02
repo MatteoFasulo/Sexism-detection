@@ -171,6 +171,7 @@ numpy==1.26.4
     # via
     #   sexism-detection (pyproject.toml)
     #   accelerate
+    #   bitsandbytes
     #   contourpy
     #   datasets
     #   gensim
