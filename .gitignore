@@ -161,15 +161,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Remove LAB folder
-lab/
-
 # Remove models folder
 models/
 
 # Remove transformers folder
 twitter-roberta-base-hate*
 xlm-roberta-base*
-
-# Remove assignments folder
-assignments/
