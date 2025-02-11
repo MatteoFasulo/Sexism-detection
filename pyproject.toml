@@ -1,0 +1,39 @@
+[project]
+name = "sexism-detection"
+version = "0.1.0"
+description = "A sexism detection model using recurrent neural architectures and transformers."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=3.2.0",
+    "gensim>=4.3.3",
+    "gradio>=5.9.1",
+    "graphviz>=0.20.3",
+    "iprogress>=0.4",
+    "ipykernel>=6.29.5",
+    "ipywidgets>=8.1.5",
+    "matplotlib>=3.10.0",
+    "netron>=8.0.7",
+    "nltk>=3.9.1",
+    "numpy>=1.26.4",
+    "onnx>=1.17.0",
+    "pandas>=2.2.3",
+    "pip>=24.3.1",
+    "requests>=2.32.3",
+    "scikit-learn>=1.6.0",
+    "torch>=2.5.1",
+    "torchaudio>=2.5.1",
+    "torchview>=0.2.6",
+    "torchvision>=0.20.1",
+    "tqdm>=4.67.1",
+    "transformers[torch]>=4.47.1",
+    "bitsandbytes>=0.45.0",
+    "sentencepiece>=0.2.0",
+    "bm25-pt>=0.0.7",
+    "statsmodels>=0.14.4",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true

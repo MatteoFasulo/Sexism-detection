@@ -1,0 +1,15 @@
+model,accuracy,fail_ratio
+Mistralv3_0_shot,0.6166666666666667,0.0
+Mistralv3_2_shot,0.7666666666666667,0.0
+Mistralv3_4_shot,0.77,0.0
+Mistralv3_8_shot,0.7466666666666667,0.0
+Mistralv3_2_shot_bm25,0.7166666666666667,0.0
+Mistralv3_4_shot_bm25,0.6533333333333333,0.0
+Mistralv3_8_shot_bm25,0.71,0.0
+Llama3_0_shot,0.61,0.0
+Llama3_2_shot,0.6333333333333333,0.0
+Llama3_4_shot,0.66,0.0
+Llama3_8_shot,0.6466666666666666,0.0
+Llama3_2_shot_bm25,0.6366666666666667,0.0
+Llama3_4_shot_bm25,0.6266666666666667,0.0
+Llama3_8_shot_bm25,0.5933333333333334,0.0
